@@ -1,0 +1,131 @@
+{
+  "init": {
+    "prefix": "\\init",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "#define rep(i, n) for (int i = 0; i < n; i++)",
+      "#define repc(e, c) for (auto&& e : c)",
+      "#define all(a) (a).begin(), (a).end()",
+      "typedef long long ll;",
+      "const int INF = 1e9;",
+      "const ll LINF = 1e18;",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "    ${0};",
+      "}",
+    ],
+  },
+  "vmap": {
+    "prefix": "\\vmap",
+    "body": [
+      "/**",
+      " * @brief vectorの各要素を変換します",
+      " * @param v 要素を変換するvector",
+      " * @param fn 各要素を受け取って変換を行う関数",
+      " * @return vにfnを適用したvector",
+      "*/",
+      "template <class T, class F>",
+      "decltype(auto) vmap(const std::vector<T> v, const F fn) {",
+      "    std::vector<decltype(fn(v[0]))> result = {};",
+      "    std::transform(v.cbegin(), v.cend(), std::back_inserter(result), fn);",
+      "    return result;",
+      "}",
+    ],
+  },
+  "vadd": {
+    "prefix": "\\vadd",
+    "body": [
+      "/**",
+      " * @brief vectorに要素を追加したvectorを返します",
+      " * @param v 要素を追加するvector",
+      " * @param e 追加する要素",
+      " * @return vにeを追加したvector",
+      "*/",
+      "template <class T>",
+      "std::vector<T> vadd(const std::vector<T> v, T e) {",
+      "    std::vector<T> copy = v;",
+      "    copy.emplace_back(e);",
+      "    return copy;",
+      "}"
+    ],
+  },
+  "PairAdd": {
+    "prefix": "\\pairadd",
+    "body": [
+      "// pairの+演算",
+      "template <typename T1, typename T2>",
+      "std::pair<T1, T2> operator+(const std::pair<T1, T2>& lhs,",
+      "                            const std::pair<T1, T2>& rhs) {",
+      "    return {lhs.first + rhs.first, lhs.second + rhs.second};",
+      "}",
+      "// pairの-演算",
+      "template <typename T1, typename T2>",
+      "std::pair<T1, T2> operator-(const std::pair<T1, T2>& lhs,",
+      "                            const std::pair<T1, T2>& rhs) {",
+      "    return {lhs.first - rhs.first, lhs.second - rhs.second};",
+      "}",
+    ],
+  },
+  "doubleOut": {
+    "prefix": "\\doubleOut",
+    "body": [
+      "std::cout << std::fixed << std::setprecision(10);"
+    ],
+  },
+  "nextPermutation": {
+    "prefix": "\\nextPermutation",
+    "body": [
+      "do {",
+      "    ",
+      "} while (next_permutation($1));"
+    ],
+  },
+  "binarySearch": {
+    "prefix": "\\binarySearch",
+    "body": [
+      "bool isOK(int index, int key) {",
+      "    if (a[index] >= key)",
+      "        return true;",
+      "    else",
+      "        return false;",
+      "}",
+      "int binary_search(int key) {",
+      "    int ng = -1;",
+      "    int ok = (int)a.size();",
+      "    while (abs(ok - ng) > 1) {",
+      "        int mid = (ok + ng) / 2;",
+      "        if (isOK(mid, key)) ok = mid;",
+      "        else ng = mid;",
+      "    }",
+      "return ok;",
+      "}"
+    ]
+  },
+  "dxdy": {
+    "prefix": "\\dxdy",
+    "body": [
+      "int dy[] = {1, 0, -1, 0};",
+      "int dx[] = {0, 1, 0, -1};"
+    ]
+  },
+  "2dsum": {
+    "prefix": "\\2dsum",
+    "body": [
+      "vector<vector<int> > s(h+1, vector<int>(w+1, 0));",
+      "rep(i, h) rep(j, w) s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + a[i][j];"
+    ]
+  },
+  "chmin": {
+    "prefix": "\\chmin",
+    "body": [
+      "template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }"
+    ]
+  },
+  "chmax": {
+    "prefix": "\\chmax",
+    "body": [
+      "template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }"
+    ]
+  }
+}

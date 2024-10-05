@@ -1,0 +1,7 @@
+{
+    "task": {
+      "program": [["template.cpp", "{TaskLabel}.cpp"]],
+      "testdir": "test",
+      "submit": "{TaskLabel}.cpp"
+    }
+  }

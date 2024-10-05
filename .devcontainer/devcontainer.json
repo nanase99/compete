@@ -1,0 +1,23 @@
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"USERNAME": "${localEnv:USER}"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-themes"
+			]
+		}
+	},
+	"remoteUser": "${localEnv:USER}",
+	"runArgs": [
+		"--security-opt",
+		"seccomp=unconfined"
+	],
+	"postStartCommand": "/workspaces/compete/.devcontainer/acc/login.sh"
+}
